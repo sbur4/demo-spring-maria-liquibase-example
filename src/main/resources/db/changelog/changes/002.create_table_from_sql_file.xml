@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+        https://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-latest.xsd">
+
+    <changeSet id="002.create_table_from_sql_file.12092204" author="Serhii Burch" context="schema">
+        <sqlFile dbms="!h2, oracle, mysql, mariadb"
+                 encoding="UTF-8"
+                 endDelimiter="\nGO"
+                 path="classpath:/database/initDB.sql"
+                 relativeToChangelogFile="true"
+                 splitStatements="true"
+                 stripComments="true"/>
+        <rollback>
+            <sqlFile path="resources:/database/rollback.sql"/>
+        </rollback>
+    </changeSet>
+
+</databaseChangeLog>
